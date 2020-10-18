@@ -9,12 +9,25 @@ function play(e) {
   restart.style.display = 'inline-block';
   const playerChoice = e.target.id;
   const computerChoice = computerSelection();
-  console.log("hello", computerChoice)
+  const winner = winnerOfRound(playerChoice, computerChoice);
+  console.log(winner);
 }
 
 function computerSelection() {
   var arr = ['rock', 'paper', 'scissors'];
   return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function winnerOfRound(p, c) {
+  if(p === c) {
+      return "It's a draw!"
+  } else if((p === "rock" & c === "scissors") ||
+  (p === "scissors" & c === "paper") ||
+  (p === "paper" & c === "rock")) {
+      return "Player wins!"
+  } else {
+      return "Computer wins!"
+  }
 }
 
 
