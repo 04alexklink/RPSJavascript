@@ -6,7 +6,8 @@ const restart = document.getElementById('restart');
 choices.forEach(choice => choice.addEventListener('click', play));
 // choice selection function
 function play(e) {
-    console.log(e.target.id);
+  restart.style.display = 'inline-block';
+  const playerChoice = e.target.id;
 }
 
 
