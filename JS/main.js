@@ -1,7 +1,12 @@
 const choices = document.querySelectorAll('.choice');
-const score = document.getElementsByClassName('score');
+const pScore = document.getElementById('player');
+const cScore = document.getElementById('computer');
 const result = document.getElementById('result');
 const restart = document.getElementById('restart');
+const scoreboard = {
+  player: 0,
+  computer: 0
+}
 
 choices.forEach(choice => choice.addEventListener('click', play));
 // choice selection function
@@ -10,7 +15,7 @@ function play(e) {
   const playerChoice = e.target.id;
   const computerChoice = computerSelection();
   const winner = winnerOfRound(playerChoice, computerChoice);
-  console.log(winner);
+  scoreUpdate(winner);
 }
 
 function computerSelection() {
@@ -20,15 +25,24 @@ function computerSelection() {
 
 function winnerOfRound(p, c) {
   if(p === c) {
-      return "It's a draw!"
-  } else if((p === "rock" & c === "scissors") ||
-  (p === "scissors" & c === "paper") ||
-  (p === "paper" & c === "rock")) {
-      return "Player wins!"
+      return "Draw";
+  } else if((p === "rock" && p === "scissors") ||
+  (p === "scissors" && c === "paper") ||
+  (p === "paper" && c === "rock")) {
+      return "Player"
   } else {
-      return "Computer wins!"
+      return "Computer"
   }
 }
 
+function scoreUpdate(w) {
+  if(w === 'Player') {
+    scoreboard.player++;
+    pScore.innerHTML = `Player: ${scoreboard.player}`
+  } else if(w === 'Computer') {
+    scoreboard.computer++;
+    cScore.innerHTML = `Computer: ${scoreboard.computer}`
+  }
+}
 
 // Event Listeners
