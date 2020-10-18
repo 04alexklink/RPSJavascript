@@ -9,6 +9,7 @@ const scoreboard = {
 }
 
 choices.forEach(choice => choice.addEventListener('click', play));
+restart.addEventListener('click', reset);
 // choice selection function
 function play(e) {
   restart.style.display = 'inline-block';
@@ -43,6 +44,13 @@ function scoreUpdate(w) {
     scoreboard.computer++;
     cScore.innerHTML = `Computer: ${scoreboard.computer}`
   }
+}
+
+function reset() {
+  scoreboard.player = 0;
+  scoreboard.computer = 0;
+  pScore.innerHTML = `Player: ${scoreboard.player}`
+  cScore.innerHTML = `Computer: ${scoreboard.computer}`
 }
 
 // Event Listeners
