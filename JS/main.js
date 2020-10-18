@@ -8,6 +8,13 @@ choices.forEach(choice => choice.addEventListener('click', play));
 function play(e) {
   restart.style.display = 'inline-block';
   const playerChoice = e.target.id;
+  const computerChoice = computerSelection();
+  console.log("hello", computerChoice)
+}
+
+function computerSelection() {
+  var arr = ['rock', 'paper', 'scissors'];
+  return arr[Math.floor(Math.random() * arr.length)];
 }
 
 
