@@ -22,8 +22,42 @@ body{
   float: left;
   width: 33.33%;
   padding: 5px;
+  cursor: pointer;
+}
+
+.choice:hover {
+   background-color:goldenrod;
 }
 
 .restart-btn{
   display: none;
+}
+
+.restart-btn:hover {
+    background: coral;
+    color: #fff;
+}
+
+.header{
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.header h1{
+  margin: 1rem 0;
+}
+
+.score{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.score p:first-child {
+    background: blue;
+}
+
+.score p:last-child{
+    background: red;
 }
