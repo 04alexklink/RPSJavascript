@@ -31,6 +31,7 @@ body{
 
 .restart-btn{
   display: none;
+  margin-bottom: 2rem;
 }
 
 .restart-btn:hover {
@@ -60,4 +61,9 @@ body{
 
 .score p:last-child{
     background: red;
+}
+
+.result {
+  text-align: center;
+  margin-top: 3rem;
 }

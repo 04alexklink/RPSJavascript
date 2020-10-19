@@ -18,17 +18,18 @@ function play(e) {
   const computerChoice = computerSelection();
   const winner = winnerOfRound(playerChoice, computerChoice);
   scoreUpdate(winner);
+  resultOfRound(winner);
 }
 
 function computerSelection() {
-  var arr = ['rock', 'paper', 'scissors'];
-  return arr[Math.floor(Math.random() * arr.length)];
+   const arr = ['rock', 'paper', 'scissors'];
+   return arr[Math.floor(Math.random() * arr.length)];
 }
 
 function winnerOfRound(p, c) {
   if(p === c) {
       return "Draw";
-  } else if((p === "rock" && p === "scissors") ||
+  } else if((p === "rock" && c === "scissors") ||
   (p === "scissors" && c === "paper") ||
   (p === "paper" && c === "rock")) {
       return "Player"
@@ -55,4 +56,11 @@ function scoreReset() {
   restart.style.display = 'none';
 }
 
-// Event Listeners
+function resultOfRound(w) {
+  if(w === 'Draw') {
+    result.innerHTML = `<h1> It's a Draw! </h1>`
+  } else {
+    result.innerHTML = `<h1> ${w} wins this one! </h1>`
+  }
+}
+
